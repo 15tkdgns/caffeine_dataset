@@ -1,0 +1,62 @@
+-- interface 테이블 코드
+
+
+-- 사용자 테이블
+interface User {
+  id: string;
+  name: string;
+  email: string;
+  passwordHash: string;
+  role: 'user' | 'admin';
+  createdAt: string;
+  updatedAt: string;
+  isActive: boolean;
+}
+
+-- 거래내역 테이블
+interface Transaction {
+  id: string;
+  userId: string;
+  merchant: string;
+  amount: number;
+  category: string;
+  transactionDate: string;
+  paymentMethod: string;
+  note?: string;
+  isAnomaly?: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
+-- 이상거래 테이블
+interface Anomaly {
+  id: string;
+  userId: string;
+  userName: string;
+  merchant: string;
+  amount: number;
+  category: string;
+  transactionDate: string;
+  riskLevel: '위험' | '경고' | '주의';
+  reason: string;
+  status: 'pending' | 'approved' | 'rejected';
+  createdAt: string;
+  updatedAt: string;
+}
+
+-- 쿠폰 테이블
+interface Coupon {
+  id: string;
+  userId: string;
+  merchant: string;
+  category: string;
+  discountAmount: number;
+  minPurchase: number;
+  expiresAt: string;
+  usedAt?: string;
+  status: 'available' | 'used' | 'expired';
+  createdAt: string;
+  updatedAt: string;
+}
+
+

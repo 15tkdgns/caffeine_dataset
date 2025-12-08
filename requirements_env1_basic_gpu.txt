@@ -1,0 +1,27 @@
+# GPU Environment 1: Basic GPU Models
+# TensorFlow, XGBoost, CatBoost
+
+# TensorFlow with CUDA
+tensorflow[and-cuda]==2.20.0
+
+# XGBoost GPU
+xgboost==3.1.2
+
+# CatBoost GPU
+catboost
+
+# Core ML libraries
+pandas
+numpy<2.0
+scikit-learn
+joblib
+
+# Data preprocessing
+imbalanced-learn
+
+# Utilities
+matplotlib
+seaborn
+
+# Additional
+tqdm
