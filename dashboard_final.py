@@ -548,50 +548,54 @@ with tab4:
 # ============================================================
 # Tab 5: 의사결정 시각화
 # ============================================================
+import streamlit as st
+import textwrap  # [필수] 이 모듈이 공백 문제를 해결해줍니다.
+
 with tab5:
     st.subheader("모델 의사결정 과정")
     
     # Mermaid 의사결정 트리
     st.markdown("### XGBoost 의사결정 흐름")
     
-    mermaid_code = """
-graph TD
-    A[거래 입력] --> B{교통비율 30% 초과}
-    A --> C{시간 6-22시}
-    A --> D{금액 50달러 미만}
-    
-    B -->|Yes| E[교통 95%]
-    B -->|No| F[다음규칙]
-    
-    C -->|Yes| G{업무시간}
-    C -->|No| H[야간거래]
-    
-    D -->|Yes| I{점심시간}
-    D -->|No| J[고액거래]
-    
-    G -->|Yes| K[생활쇼핑]
-    G -->|No| L[외식]
-    
-    I -->|Yes| M[외식 72%]
-    I -->|No| N[식료품 53%]
-    
-    H --> O[편의점주유]
-    
-    style E fill:#90EE90
-    style M fill:#FFE4B5
-    style N fill:#FFB6C1
-    style J fill:#87CEEB
-"""
+    # [핵심 수정] textwrap.dedent()로 감싸서 들여쓰기 공백을 제거합니다.
+    mermaid_code = textwrap.dedent("""
+    graph TD
+        A[거래입력] --> B{교통비율}
+        A --> C{시간대}
+        A --> D{금액}
+        
+        B -->|Yes| E[교통]
+        B -->|No| F[다음]
+        
+        C -->|Yes| G{업무}
+        C -->|No| H[야간]
+        
+        D -->|Yes| I{점심}
+        D -->|No| J[고액]
+        
+        G -->|Yes| K[생활]
+        G -->|No| L[외식]
+        
+        I -->|Yes| M[외식]
+        I -->|No| N[식료품]
+        
+        H --> O[편의점]
+        
+        style E fill:#90EE90
+        style M fill:#FFE4B5
+        style N fill:#FFB6C1
+        style J fill:#87CEEB
+    """)
     
     html_code = f"""
-<div class="mermaid">
-{mermaid_code}
-</div>
-<script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({{ startOnLoad: true }});
-</script>
-"""
+    <div class="mermaid" style="text-align: center;">
+    {mermaid_code}
+    </div>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({{ startOnLoad: true }});
+    </script>
+    """
     
     st.components.v1.html(html_code, height=600)
     
