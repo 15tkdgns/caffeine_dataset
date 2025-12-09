@@ -64,3 +64,6 @@ Thumbs.db
 # Optuna
 *.db
 optuna_storage/
+
+# Archive (실험 파일 보관소)
+99_archive/
