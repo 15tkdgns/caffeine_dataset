@@ -1,0 +1,136 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.0.3 Chrome/140.0.7339.249 Electron/38.7.0 Safari/537.36" version="29.0.3">
+  <diagram name="XGBoost 의사결정 흐름" id="decision-tree">
+    <mxGraphModel dx="1426" dy="849" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="XGBoost 의사결정 흐름도" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontStyle=1;fontSize=14;fontColor=default;shadow=0;snapToPoint=0;labelBorderColor=none;textShadow=0;" parent="1" vertex="1">
+          <mxGeometry x="350" y="20" width="400" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="input" value="거래 입력" style="rounded=1;html=1;fillColor=#667eea;fontColor=default;strokeColor=#764ba2;fontStyle=1;fontSize=14;shadow=0;snapToPoint=0;labelBorderColor=none;textShadow=0;" parent="1" vertex="1">
+          <mxGeometry x="475" y="80" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="traffic_check" value="User_교통_Ratio &amp;gt; 0.3?" style="rhombus;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=14;shadow=0;snapToPoint=0;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" vertex="1">
+          <mxGeometry x="150" y="180" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="time_check" value="업무시간 (9-18시)?" style="rhombus;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=14;shadow=0;snapToPoint=0;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" vertex="1">
+          <mxGeometry x="460" y="180" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="amount_check" value="금액 &amp;lt; $50?" style="rhombus;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=14;shadow=0;snapToPoint=0;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" vertex="1">
+          <mxGeometry x="770" y="180" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#667eea;fontStyle=1;shadow=0;snapToPoint=0;fontSize=14;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" source="input" target="traffic_check" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#667eea;fontStyle=1;shadow=0;snapToPoint=0;fontSize=14;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" source="input" target="time_check" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#667eea;fontStyle=1;shadow=0;snapToPoint=0;fontSize=14;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" source="input" target="amount_check" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="traffic_yes" value="교통&lt;br&gt;(95.30%)" style="rounded=1;html=1;fillColor=#90EE90;strokeColor=#28a745;fontStyle=1;fontSize=14;shadow=0;snapToPoint=0;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" vertex="1">
+          <mxGeometry x="70" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="traffic_no" value="다음 조건" style="rounded=1;html=1;fillColor=#e8eaf6;strokeColor=#667eea;fontSize=14;fontStyle=1;shadow=0;snapToPoint=0;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" vertex="1">
+          <mxGeometry x="250" y="320" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow4" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#28a745;fontStyle=1;shadow=0;snapToPoint=0;fontSize=14;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" source="traffic_check" target="traffic_yes" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow5" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#dc3545;fontStyle=1;shadow=0;snapToPoint=0;fontSize=14;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" source="traffic_check" target="traffic_no" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="living" value="생활&lt;br&gt;(94.53%)" style="rounded=1;html=1;fillColor=#90EE90;strokeColor=#28a745;fontStyle=1;fontSize=14;shadow=0;snapToPoint=0;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" vertex="1">
+          <mxGeometry x="380" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="night" value="야간 거래" style="rounded=1;html=1;fillColor=#e1bee7;strokeColor=#9c27b0;fontSize=14;fontStyle=1;shadow=0;snapToPoint=0;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" vertex="1">
+          <mxGeometry x="540" y="320" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow6" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#28a745;fontStyle=1;shadow=0;snapToPoint=0;fontSize=14;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" source="time_check" target="living" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow7" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#dc3545;fontStyle=1;shadow=0;snapToPoint=0;fontSize=14;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" source="time_check" target="night" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lunch_check" value="점심시간 (11-14시)?" style="rhombus;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=14;shadow=0;snapToPoint=0;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" vertex="1">
+          <mxGeometry x="680" y="320" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="shopping" value="쇼핑&lt;br&gt;(74.50%)" style="rounded=1;html=1;fillColor=#87CEEB;strokeColor=#1976d2;fontStyle=1;fontSize=14;shadow=0;snapToPoint=0;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" vertex="1">
+          <mxGeometry x="880" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow8" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#28a745;fontStyle=1;shadow=0;snapToPoint=0;fontSize=14;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" source="amount_check" target="lunch_check" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow9" value="No (고액)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#dc3545;fontStyle=1;shadow=0;snapToPoint=0;fontSize=14;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" source="amount_check" target="shopping" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dining" value="외식&lt;br&gt;(68.37%)" style="rounded=1;html=1;fillColor=#FFE4B5;strokeColor=#ff9800;fontStyle=1;fontSize=14;shadow=0;snapToPoint=0;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" vertex="1">
+          <mxGeometry x="620" y="440" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="grocery" value="식료품&lt;br&gt;(53.46%)" style="rounded=1;html=1;fillColor=#FFB6C1;strokeColor=#e91e63;fontStyle=1;fontSize=14;shadow=0;snapToPoint=0;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" vertex="1">
+          <mxGeometry x="780" y="440" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow10" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#28a745;fontStyle=1;shadow=0;snapToPoint=0;fontSize=14;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" source="lunch_check" target="dining" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow11" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#dc3545;fontStyle=1;shadow=0;snapToPoint=0;fontSize=14;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" source="lunch_check" target="grocery" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fuel_check" value="출퇴근 시간대?&#xa;(7-9시, 17-19시)" style="rhombus;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=14;shadow=0;snapToPoint=0;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" vertex="1">
+          <mxGeometry x="220" y="420" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="fuel" value="주유&lt;br&gt;(49.76%)" style="rounded=1;html=1;fillColor=#ffcdd2;strokeColor=#f44336;fontStyle=1;fontSize=14;shadow=0;snapToPoint=0;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" vertex="1">
+          <mxGeometry x="160" y="540" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="convenience" value="편의점" style="rounded=1;html=1;fillColor=#b3e5fc;strokeColor=#03a9f4;fontStyle=1;fontSize=14;shadow=0;snapToPoint=0;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" vertex="1">
+          <mxGeometry x="520" y="430" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#667eea;fontStyle=1;shadow=0;snapToPoint=0;fontSize=14;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" source="traffic_no" target="fuel_check" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#9c27b0;fontStyle=1;shadow=0;snapToPoint=0;fontSize=14;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" source="night" target="convenience" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow14" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#28a745;fontStyle=1;shadow=0;snapToPoint=0;fontSize=14;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" source="fuel_check" target="fuel" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_box" value="" style="rounded=1;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;fontStyle=1;shadow=0;snapToPoint=0;fontSize=14;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" vertex="1">
+          <mxGeometry x="50" y="650" width="400" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_title" value="범례" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontStyle=1;fontSize=14;shadow=0;snapToPoint=0;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" vertex="1">
+          <mxGeometry x="60" y="655" width="100" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="legend1" value="높은 정확도 (F1 &amp;gt; 90%): 교통, 생활" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=14;fontStyle=1;shadow=0;snapToPoint=0;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" vertex="1">
+          <mxGeometry x="60" y="680" width="250" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="legend2" value="중간 정확도 (F1 60-80%): 쇼핑, 외식" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=14;fontStyle=1;shadow=0;snapToPoint=0;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" vertex="1">
+          <mxGeometry x="60" y="700" width="250" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="legend3" value="낮은 정확도 (F1 &amp;lt; 60%): 식료품, 주유" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=14;fontStyle=1;shadow=0;snapToPoint=0;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" vertex="1">
+          <mxGeometry x="60" y="720" width="250" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="legend4" value="◇ 조건 분기점 (의사결정 노드)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=14;fontStyle=1;shadow=0;snapToPoint=0;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" vertex="1">
+          <mxGeometry x="60" y="740" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="note_box" value="" style="rounded=1;html=1;fillColor=#e8f5e9;strokeColor=#4caf50;strokeWidth=2;fontStyle=1;shadow=0;snapToPoint=0;fontSize=14;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" vertex="1">
+          <mxGeometry x="500" y="650" width="550" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="note_title" value="참고사항" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontStyle=1;fontSize=14;fontColor=default;shadow=0;snapToPoint=0;labelBorderColor=none;textShadow=0;" parent="1" vertex="1">
+          <mxGeometry x="510" y="655" width="150" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="note1" value="• XGBoost는 460개의 트리를 사용하여 예측합니다." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=14;fontStyle=1;shadow=0;snapToPoint=0;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" vertex="1">
+          <mxGeometry x="510" y="680" width="350" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="note2" value="• 위 다이어그램은 간략화된 의사결정 흐름입니다." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=14;fontStyle=1;shadow=0;snapToPoint=0;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" vertex="1">
+          <mxGeometry x="510" y="700" width="350" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="note3" value="• 실제로는 수천 개의 규칙이 조합되어 최종 예측됩니다." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=14;fontStyle=1;shadow=0;snapToPoint=0;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" vertex="1">
+          <mxGeometry x="510" y="720" width="350" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="note4" value="• User_카테고리_Ratio가 전체 중요도의 35%를 차지합니다." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=14;fontStyle=1;shadow=0;snapToPoint=0;fontColor=default;labelBorderColor=none;textShadow=0;" parent="1" vertex="1">
+          <mxGeometry x="510" y="740" width="350" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
